@@ -1,0 +1,53 @@
+<h1>PELICULAS</h1>
+
+<div class="row mt-2">
+    Title: <input #title type="text" class="form-control" />  
+</div>
+<div class="row">
+    Year: <input #year type="text" class="form-control" />  
+</div>
+<div class="row">
+    Genres: <input #genres type="text" class="form-control" />  
+</div>
+<div class="row mt-2">
+    <input type="button" class="btn btn-success" value="Add" (click)="agregarPelicula(title.value, year.value, genres.value)" />  
+</div>
+
+
+
+<div class="container mt-5" *ngIf="peliculas.length > 0">
+
+    <table class="table">
+        <thead>
+            <th>
+                Title
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Delete
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of peliculas; let indice = index">
+                <td>
+                    {{ item.Title }}
+                </td>
+                <td>
+                    {{ item.Genre }}
+                </td>
+                <td>
+                    {{ item.Year }}
+                </td>
+                <td>
+                    <input type="button" class="btn btn-danger" value="X" (click)="quitarPelicula(indice)" >                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
